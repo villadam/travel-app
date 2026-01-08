@@ -6,8 +6,8 @@ INSERT INTO flight (flight_number, airline, origin, destination, departure_time,
 ('UA1234', 'United Airlines', 'SFO', 'JFK', '2026-02-15 08:00:00', '2026-02-15 16:30:00', 330, 350.00, 0, 'Boeing 737', 150),
 ('DL5678', 'Delta Air Lines', 'SFO', 'JFK', '2026-02-15 10:30:00', '2026-02-15 19:00:00', 330, 325.00, 0, 'Airbus A320', 180),
 ('AA9012', 'American Airlines', 'SFO', 'JFK', '2026-02-15 14:00:00', '2026-02-15 22:30:00', 330, 375.00, 0, 'Boeing 777', 200),
-('UA2345', 'United Airlines', 'SFO', 'JFK', '2026-02-15 06:00:00', '2026-02-15 17:15:00', 435, 280.00, 1, 'Boeing 737', 150),
-('DL6789', 'Delta Air Lines', 'SFO', 'JFK', '2026-02-15 12:00:00', '2026-02-15 23:30:00', 450, 265.00, 1, 'Airbus A320', 180);
+('UA2345', 'United Airlines', 'SFO', 'JFK', '2026-02-15 06:00:00', '2026-02-15 16:15:00', 435, 280.00, 1, 'Boeing 737', 150),
+('DL6789', 'Delta Air Lines', 'SFO', 'JFK', '2026-02-15 12:00:00', '2026-02-15 22:30:00', 450, 265.00, 1, 'Airbus A320', 180);
 
 -- LAX to ORD flights
 INSERT INTO flight (flight_number, airline, origin, destination, departure_time, arrival_time, duration_minutes, price, stops, aircraft_type, available_seats) VALUES
@@ -28,7 +28,7 @@ INSERT INTO flight (flight_number, airline, origin, destination, departure_time,
 ('DL9012', 'Delta Air Lines', 'SEA', 'ATL', '2026-02-15 07:00:00', '2026-02-15 14:30:00', 270, 320.00, 0, 'Airbus A320', 180),
 ('AA3456', 'American Airlines', 'SEA', 'ATL', '2026-02-15 09:30:00', '2026-02-15 17:00:00', 270, 310.00, 0, 'Boeing 777', 200),
 ('DL0123', 'Delta Air Lines', 'SEA', 'ATL', '2026-02-15 12:00:00', '2026-02-15 19:30:00', 270, 335.00, 0, 'Airbus A320', 180),
-('AA4567', 'American Airlines', 'SEA', 'ATL', '2026-02-15 10:00:00', '2026-02-15 20:15:00', 375, 275.00, 1, 'Boeing 737', 150);
+('AA4567', 'American Airlines', 'SEA', 'ATL', '2026-02-15 10:00:00', '2026-02-15 19:15:00', 375, 275.00, 1, 'Boeing 737', 150);
 
 -- DEN to DFW flights
 INSERT INTO flight (flight_number, airline, origin, destination, departure_time, arrival_time, duration_minutes, price, stops, aircraft_type, available_seats) VALUES
