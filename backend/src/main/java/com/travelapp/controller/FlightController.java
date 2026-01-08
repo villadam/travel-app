@@ -22,7 +22,7 @@ public class FlightController {
         @Argument String origin,
         @Argument String destination,
         @Argument String departureDate,
-        @Argument(defaultValue = "1") Integer passengers
+        @Argument Integer passengers
     ) {
         return flightService.searchFlights(origin, destination, departureDate);
     }
