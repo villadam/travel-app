@@ -69,6 +69,8 @@ public class FlightService {
                 throw new IllegalArgumentException("Departure date must be today or in the future");
             }
             return date.atStartOfDay();
+        } catch (IllegalArgumentException e) {
+            throw e;
         } catch (Exception e) {
             throw new IllegalArgumentException("Invalid date format. Expected: YYYY-MM-DD");
         }
