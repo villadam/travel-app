@@ -19,6 +19,11 @@ public class Booking {
     @NotNull(message = "Flight is required")
     private Flight flight;
 
+    @NotBlank
+    @Size(min = 6, max = 6)
+    @Column(name = "booking_reference", nullable = false, unique = true, length = 6)
+    private String bookingReference;
+
     @NotBlank(message = "Passenger name is required")
     @Size(min = 2, max = 100, message = "Passenger name must be between 2 and 100 characters")
     @Column(name = "passenger_name", nullable = false, length = 100)
@@ -33,12 +38,6 @@ public class Booking {
     @Pattern(regexp = "^\\+?[1-9]\\d{1,14}$", message = "Passenger phone must be a valid phone number")
     @Column(name = "passenger_phone", nullable = false, length = 20)
     private String passengerPhone;
-
-    @NotNull(message = "Number of seats is required")
-    @Min(value = 1, message = "Number of seats must be at least 1")
-    @Max(value = 9, message = "Number of seats cannot exceed 9")
-    @Column(name = "number_of_seats", nullable = false)
-    private Integer numberOfSeats;
 
     @Column(name = "booking_date", nullable = false)
     private LocalDateTime bookingDate;
@@ -80,6 +79,14 @@ public class Booking {
         this.flight = flight;
     }
 
+    public String getBookingReference() {
+        return bookingReference;
+    }
+
+    public void setBookingReference(String bookingReference) {
+        this.bookingReference = bookingReference;
+    }
+
     public String getPassengerName() {
         return passengerName;
     }
@@ -102,14 +109,6 @@ public class Booking {
 
     public void setPassengerPhone(String passengerPhone) {
         this.passengerPhone = passengerPhone;
-    }
-
-    public Integer getNumberOfSeats() {
-        return numberOfSeats;
-    }
-
-    public void setNumberOfSeats(Integer numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
     }
 
     public LocalDateTime getBookingDate() {

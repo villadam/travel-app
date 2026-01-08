@@ -43,6 +43,10 @@ public class Flight {
     @Column(name = "arrival_time", nullable = false)
     private LocalDateTime arrivalTime;
 
+    @Positive
+    @Column(name = "duration_minutes", nullable = false)
+    private Integer durationMinutes;
+
     @NotNull(message = "Price is required")
     @Positive(message = "Price must be greater than zero")
     @DecimalMin(value = "0.01", message = "Price must be at least 0.01")
@@ -54,20 +58,13 @@ public class Flight {
     @Column(name = "available_seats", nullable = false)
     private Integer availableSeats;
 
-    @NotNull(message = "Total seats is required")
-    @Positive(message = "Total seats must be greater than zero")
-    @Column(name = "total_seats", nullable = false)
-    private Integer totalSeats;
+    @Min(0)
+    @Column(name = "stops", nullable = false)
+    private Integer stops;
 
     @NotBlank(message = "Aircraft type is required")
     @Column(name = "aircraft_type", nullable = false, length = 50)
     private String aircraftType;
-
-    @NotBlank(message = "Status is required")
-    @Pattern(regexp = "^(SCHEDULED|DELAYED|CANCELLED|DEPARTED|ARRIVED)$",
-             message = "Status must be one of: SCHEDULED, DELAYED, CANCELLED, DEPARTED, ARRIVED")
-    @Column(name = "status", nullable = false, length = 20)
-    private String status;
 
     // Default constructor
     public Flight() {
@@ -147,12 +144,20 @@ public class Flight {
         this.availableSeats = availableSeats;
     }
 
-    public Integer getTotalSeats() {
-        return totalSeats;
+    public Integer getDurationMinutes() {
+        return durationMinutes;
     }
 
-    public void setTotalSeats(Integer totalSeats) {
-        this.totalSeats = totalSeats;
+    public void setDurationMinutes(Integer durationMinutes) {
+        this.durationMinutes = durationMinutes;
+    }
+
+    public Integer getStops() {
+        return stops;
+    }
+
+    public void setStops(Integer stops) {
+        this.stops = stops;
     }
 
     public String getAircraftType() {
@@ -161,13 +166,5 @@ public class Flight {
 
     public void setAircraftType(String aircraftType) {
         this.aircraftType = aircraftType;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 }
