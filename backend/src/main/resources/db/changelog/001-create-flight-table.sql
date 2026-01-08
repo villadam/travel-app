@@ -22,10 +22,12 @@ CREATE TABLE flight (
         price > 0 AND
         stops >= 0 AND
         available_seats >= 0
-    )
+    ),
+    CONSTRAINT uq_flight_instance UNIQUE (flight_number, departure_time),
+    CONSTRAINT chk_time_logic CHECK (arrival_time > departure_time)
 );
 
-CREATE INDEX idx_flight_route ON flight(origin, destination);
+CREATE INDEX idx_flight_search ON flight(origin, destination, departure_time);
 CREATE INDEX idx_flight_departure ON flight(departure_time);
 
 --rollback DROP TABLE flight;

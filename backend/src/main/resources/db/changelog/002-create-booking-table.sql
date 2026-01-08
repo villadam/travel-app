@@ -10,7 +10,8 @@ CREATE TABLE booking (
     passenger_phone VARCHAR(20) NOT NULL,
     booking_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(20) NOT NULL,
-    CONSTRAINT fk_booking_flight FOREIGN KEY (flight_id) REFERENCES flight(id),
+    CONSTRAINT fk_booking_flight FOREIGN KEY (flight_id) REFERENCES flight(id) ON DELETE RESTRICT,
+    CONSTRAINT chk_booking_ref CHECK (booking_reference ~ '^[A-Z0-9]{6}$'),
     CONSTRAINT chk_status CHECK (status IN ('CONFIRMED', 'CANCELLED'))
 );
 
