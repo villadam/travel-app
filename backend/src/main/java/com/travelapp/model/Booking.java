@@ -10,7 +10,7 @@ import java.util.UUID;
 public class Booking {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "id", columnDefinition = "UUID")
     private UUID id;
 
@@ -21,6 +21,7 @@ public class Booking {
 
     @NotBlank
     @Size(min = 6, max = 6)
+    @Pattern(regexp = "^[A-Z0-9]{6}$")
     @Column(name = "booking_reference", nullable = false, unique = true, length = 6)
     private String bookingReference;
 
@@ -31,7 +32,7 @@ public class Booking {
 
     @NotBlank(message = "Passenger email is required")
     @Email(message = "Passenger email must be valid")
-    @Column(name = "passenger_email", nullable = false, length = 100)
+    @Column(name = "passenger_email", nullable = false, length = 255)
     private String passengerEmail;
 
     @NotBlank(message = "Passenger phone is required")
@@ -39,9 +40,11 @@ public class Booking {
     @Column(name = "passenger_phone", nullable = false, length = 20)
     private String passengerPhone;
 
+    @NotNull
     @Column(name = "booking_date", nullable = false)
     private LocalDateTime bookingDate;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 20)
     private BookingStatus status;

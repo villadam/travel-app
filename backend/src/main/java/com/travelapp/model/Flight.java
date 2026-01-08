@@ -15,7 +15,7 @@ public class Flight {
 
     @NotBlank(message = "Flight number is required")
     @Pattern(regexp = "^[A-Z]{2}\\d{3,4}$", message = "Flight number must be in format XX000 or XX0000")
-    @Column(name = "flight_number", nullable = false, unique = true, length = 10)
+    @Column(name = "flight_number", nullable = false, length = 10)
     private String flightNumber;
 
     @NotBlank(message = "Airline is required")
@@ -43,6 +43,7 @@ public class Flight {
     @Column(name = "arrival_time", nullable = false)
     private LocalDateTime arrivalTime;
 
+    @NotNull
     @Positive
     @Column(name = "duration_minutes", nullable = false)
     private Integer durationMinutes;
@@ -58,6 +59,7 @@ public class Flight {
     @Column(name = "available_seats", nullable = false)
     private Integer availableSeats;
 
+    @NotNull
     @Min(0)
     @Column(name = "stops", nullable = false)
     private Integer stops;
