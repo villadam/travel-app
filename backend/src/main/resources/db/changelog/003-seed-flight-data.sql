@@ -14,14 +14,14 @@ INSERT INTO flight (flight_number, airline, origin, destination, departure_time,
 ('UA3456', 'United Airlines', 'LAX', 'ORD', '2026-02-15 07:00:00', '2026-02-15 13:00:00', 240, 220.00, 0, 'Boeing 737', 150),
 ('AA0123', 'American Airlines', 'LAX', 'ORD', '2026-02-15 09:30:00', '2026-02-15 15:30:00', 240, 235.00, 0, 'Boeing 777', 200),
 ('SW4567', 'Southwest Airlines', 'LAX', 'ORD', '2026-02-15 11:00:00', '2026-02-15 17:00:00', 240, 195.00, 0, 'Boeing 737', 175),
-('UA4567', 'United Airlines', 'LAX', 'ORD', '2026-02-15 13:00:00', '2026-02-15 21:30:00', 330, 180.00, 1, 'Boeing 737', 150);
+('UA4567', 'United Airlines', 'LAX', 'ORD', '2026-02-15 13:00:00', '2026-02-15 20:30:00', 330, 180.00, 1, 'Boeing 737', 150);
 
 -- BOS to MIA flights
 INSERT INTO flight (flight_number, airline, origin, destination, departure_time, arrival_time, duration_minutes, price, stops, aircraft_type, available_seats) VALUES
 ('DL7890', 'Delta Air Lines', 'BOS', 'MIA', '2026-02-15 08:00:00', '2026-02-15 11:30:00', 210, 250.00, 0, 'Airbus A320', 180),
 ('AA1234', 'American Airlines', 'BOS', 'MIA', '2026-02-15 10:00:00', '2026-02-15 13:30:00', 210, 265.00, 0, 'Boeing 737', 150),
 ('DL8901', 'Delta Air Lines', 'BOS', 'MIA', '2026-02-15 14:00:00', '2026-02-15 17:30:00', 210, 245.00, 0, 'Airbus A320', 180),
-('AA2345', 'American Airlines', 'BOS', 'MIA', '2026-02-15 06:30:00', '2026-02-15 12:45:00', 255, 210.00, 1, 'Boeing 737', 150);
+('AA2345', 'American Airlines', 'BOS', 'MIA', '2026-02-15 06:30:00', '2026-02-15 10:45:00', 255, 210.00, 1, 'Boeing 737', 150);
 
 -- SEA to ATL flights
 INSERT INTO flight (flight_number, airline, origin, destination, departure_time, arrival_time, duration_minutes, price, stops, aircraft_type, available_seats) VALUES
@@ -32,17 +32,17 @@ INSERT INTO flight (flight_number, airline, origin, destination, departure_time,
 
 -- DEN to DFW flights
 INSERT INTO flight (flight_number, airline, origin, destination, departure_time, arrival_time, duration_minutes, price, stops, aircraft_type, available_seats) VALUES
-('UA5678', 'United Airlines', 'DEN', 'DFW', '2026-02-15 08:00:00', '2026-02-15 10:30:00', 150, 180.00, 0, 'Boeing 737', 150),
-('AA5678', 'American Airlines', 'DEN', 'DFW', '2026-02-15 11:00:00', '2026-02-15 13:30:00', 150, 195.00, 0, 'Boeing 777', 200),
-('SW5678', 'Southwest Airlines', 'DEN', 'DFW', '2026-02-15 13:30:00', '2026-02-15 16:00:00', 150, 165.00, 0, 'Boeing 737', 175),
-('UA6789', 'United Airlines', 'DEN', 'DFW', '2026-02-15 15:00:00', '2026-02-15 17:30:00', 150, 175.00, 0, 'Boeing 737', 150);
+('UA5678', 'United Airlines', 'DEN', 'DFW', '2026-02-15 08:00:00', '2026-02-15 11:30:00', 150, 180.00, 0, 'Boeing 737', 150),
+('AA5678', 'American Airlines', 'DEN', 'DFW', '2026-02-15 11:00:00', '2026-02-15 14:30:00', 150, 195.00, 0, 'Boeing 777', 200),
+('SW5678', 'Southwest Airlines', 'DEN', 'DFW', '2026-02-15 13:30:00', '2026-02-15 17:00:00', 150, 165.00, 0, 'Boeing 737', 175),
+('UA6789', 'United Airlines', 'DEN', 'DFW', '2026-02-15 15:00:00', '2026-02-15 18:30:00', 150, 175.00, 0, 'Boeing 737', 150);
 
 -- PHX to LAS flights
 INSERT INTO flight (flight_number, airline, origin, destination, departure_time, arrival_time, duration_minutes, price, stops, aircraft_type, available_seats) VALUES
-('SW6789', 'Southwest Airlines', 'PHX', 'LAS', '2026-02-15 09:00:00', '2026-02-15 10:15:00', 75, 120.00, 0, 'Boeing 737', 175),
-('AA6789', 'American Airlines', 'PHX', 'LAS', '2026-02-15 11:30:00', '2026-02-15 12:45:00', 75, 135.00, 0, 'Boeing 737', 150),
-('SW7890', 'Southwest Airlines', 'PHX', 'LAS', '2026-02-15 14:00:00', '2026-02-15 15:15:00', 75, 115.00, 0, 'Boeing 737', 175),
-('AA7890', 'American Airlines', 'PHX', 'LAS', '2026-02-15 16:30:00', '2026-02-15 17:45:00', 75, 130.00, 0, 'Boeing 737', 150);
+('SW6789', 'Southwest Airlines', 'PHX', 'LAS', '2026-02-15 09:00:00', '2026-02-15 09:15:00', 75, 120.00, 0, 'Boeing 737', 175),
+('AA6789', 'American Airlines', 'PHX', 'LAS', '2026-02-15 11:30:00', '2026-02-15 11:45:00', 75, 135.00, 0, 'Boeing 737', 150),
+('SW7890', 'Southwest Airlines', 'PHX', 'LAS', '2026-02-15 14:00:00', '2026-02-15 14:15:00', 75, 115.00, 0, 'Boeing 737', 175),
+('AA7890', 'American Airlines', 'PHX', 'LAS', '2026-02-15 16:30:00', '2026-02-15 16:45:00', 75, 130.00, 0, 'Boeing 737', 150);
 
 -- Return flights (various routes)
 INSERT INTO flight (flight_number, airline, origin, destination, departure_time, arrival_time, duration_minutes, price, stops, aircraft_type, available_seats) VALUES
