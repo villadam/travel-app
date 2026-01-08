@@ -1,0 +1,60 @@
+type Query {
+    searchFlights(
+        origin: String!
+        destination: String!
+        departureDate: String!
+        passengers: Int = 1
+    ): [Flight!]!
+
+    flight(id: ID!): Flight
+
+    booking(bookingReference: String!): Booking
+}
+
+type Mutation {
+    createBooking(input: BookingInput!): BookingResult!
+}
+
+type Flight {
+    id: ID!
+    flightNumber: String!
+    airline: String!
+    origin: String!
+    destination: String!
+    departureTime: String!
+    arrivalTime: String!
+    durationMinutes: Int!
+    price: Float!
+    stops: Int!
+    aircraftType: String!
+    availableSeats: Int!
+}
+
+type Booking {
+    id: ID!
+    bookingReference: String!
+    flight: Flight!
+    passengerName: String!
+    passengerEmail: String!
+    passengerPhone: String!
+    bookingDate: String!
+    status: BookingStatus!
+}
+
+enum BookingStatus {
+    CONFIRMED
+    CANCELLED
+}
+
+input BookingInput {
+    flightId: ID!
+    passengerName: String!
+    passengerEmail: String!
+    passengerPhone: String!
+}
+
+type BookingResult {
+    success: Boolean!
+    booking: Booking
+    message: String
+}
