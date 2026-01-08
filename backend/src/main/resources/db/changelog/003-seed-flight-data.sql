@@ -50,4 +50,9 @@ INSERT INTO flight (flight_number, airline, origin, destination, departure_time,
 ('DL1234', 'Delta Air Lines', 'ORD', 'LAX', '2026-02-16 09:00:00', '2026-02-16 11:30:00', 270, 230.00, 0, 'Airbus A320', 180),
 ('AA8901', 'American Airlines', 'MIA', 'BOS', '2026-02-16 10:00:00', '2026-02-16 13:30:00', 210, 260.00, 0, 'Boeing 737', 150);
 
+-- Additional flights to reach 30 total
+INSERT INTO flight (flight_number, airline, origin, destination, departure_time, arrival_time, duration_minutes, price, stops, aircraft_type, available_seats) VALUES
+('DL2468', 'Delta Air Lines', 'LAX', 'SEA', '2026-02-15 15:00:00', '2026-02-15 17:45:00', 165, 210.00, 0, 'Airbus A320', 180),
+('UA8642', 'United Airlines', 'DFW', 'DEN', '2026-02-16 14:00:00', '2026-02-16 15:30:00', 150, 185.00, 0, 'Boeing 737', 150);
+
 --rollback DELETE FROM flight;
