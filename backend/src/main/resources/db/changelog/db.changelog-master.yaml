@@ -3,3 +3,5 @@ databaseChangeLog:
       file: db/changelog/001-create-flight-table.sql
   - include:
       file: db/changelog/002-create-booking-table.sql
+  - include:
+      file: db/changelog/003-seed-flight-data.sql
