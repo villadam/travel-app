@@ -8,7 +8,7 @@ group = 'com.travelapp'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '17'
+    sourceCompatibility = '22'
 }
 
 repositories {
@@ -32,9 +32,11 @@ dependencies {
     // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.graphql:spring-graphql-test'
-    testImplementation 'org.testcontainers:testcontainers:1.19.3'
-    testImplementation 'org.testcontainers:postgresql:1.19.3'
-    testImplementation 'org.testcontainers:junit-jupiter:1.19.3'
+    testImplementation 'org.testcontainers:testcontainers:1.20.4'
+    testImplementation 'org.testcontainers:postgresql:1.20.4'
+    testImplementation 'org.testcontainers:junit-jupiter:1.20.4'
+    testImplementation 'com.github.docker-java:docker-java-api:3.4.1'
+    testImplementation 'com.github.docker-java:docker-java-transport-httpclient5:3.4.1'
     testRuntimeOnly 'com.h2database:h2'
 }
 
