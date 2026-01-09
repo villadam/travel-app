@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: flight-booking-db
+    environment:
+      POSTGRES_DB: flightbooking
+      POSTGRES_USER: flightuser
+      POSTGRES_PASSWORD: flightpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U flightuser -d flightbooking"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - flight-booking-network
+
+  # Spring Boot Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: flight-booking-backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/flightbooking
+      SPRING_DATASOURCE_USERNAME: flightuser
+      SPRING_DATASOURCE_PASSWORD: flightpass
+      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+      SPRING_LIQUIBASE_ENABLED: true
+      SPRING_PROFILES_ACTIVE: prod
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8080/actuator/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    networks:
+      - flight-booking-network
+
+  # React Frontend with Nginx
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: flight-booking-frontend
+    environment:
+      VITE_GRAPHQL_URI: http://localhost:8080/graphql
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:80/health || exit 1"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    networks:
+      - flight-booking-network
+
+networks:
+  flight-booking-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
