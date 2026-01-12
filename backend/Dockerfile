@@ -1,23 +1,24 @@
 # Build stage
-FROM gradle:8.12-jdk22 AS build
+FROM eclipse-temurin:21-jdk AS build
 
 WORKDIR /app
 
 # Copy gradle files for dependency resolution
-COPY build.gradle settings.gradle ./
+COPY gradlew build.gradle settings.gradle ./
 COPY gradle ./gradle
 
 # Download dependencies (cached layer)
-RUN gradle dependencies --no-daemon || true
+RUN chmod +x gradlew
+RUN ./gradlew dependencies --no-daemon || true
 
 # Copy source code
 COPY src ./src
 
 # Build application (skip tests to speed up build, tests run in CI)
-RUN gradle bootJar --no-daemon -x test
+RUN ./gradlew bootJar --no-daemon -x test
 
 # Runtime stage
-FROM eclipse-temurin:22-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
