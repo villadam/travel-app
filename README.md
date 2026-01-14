@@ -11,6 +11,7 @@ A full-stack flight booking application built with Spring Boot, GraphQL, React, 
 - **GraphQL API**: Efficient data fetching with GraphQL
 - **Responsive UI**: Modern Material-UI design
 - **Dockerized**: Full Docker support with Docker Compose
+- **Seeded Data**: Database migrations include test flight data for local development
 
 ## Tech Stack
 
@@ -332,6 +333,7 @@ docker-compose down -v
 - Parameterized queries to prevent SQL injection
 - CORS configured for frontend origin only
 - Environment variables for sensitive configuration
+- Application auth and authorization are planned for the next iteration
 
 ## Future Enhancements
 
