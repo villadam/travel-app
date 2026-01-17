@@ -1,5 +1,14 @@
 # Repository Guidelines
 
+## Framework Selection
+Two frameworks are available. Ask the user which one to use at the start of each session.
+
+### Superpowers System (optional)
+If the user selects Superpowers, run: `~/.codex/superpowers/.codex/superpowers-codex bootstrap` and follow the instructions it returns.
+
+### Spec Kit (optional)
+Spec Kit prompts live in `.codex/prompts` and are invoked as `/speckit.*` (for example, `/speckit.specify`).
+
 ## Project Structure & Module Organization
 - `backend/` is the Spring Boot + GraphQL service. Source lives in `backend/src/main/java/com/travelapp`, resources in `backend/src/main/resources`, and tests in `backend/src/test`.
 - `frontend/` is the React + Vite app. UI lives in `frontend/src/components` and `frontend/src/pages`, with GraphQL operations in `frontend/src/graphql`.
